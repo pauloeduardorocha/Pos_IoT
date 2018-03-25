@@ -3,19 +3,21 @@
 
     <!--Stats cards-->
     <div class="row">
-      <div class="col-lg-3 col-sm-6" v-for="stats in statsCards">
-        <stats-card>
-          <div class="icon-big text-center" :class="`icon-${stats.type}`" slot="header">
-            <i :class="stats.icon"></i>
-          </div>
-          <div class="numbers" slot="content">
-            <p>{{stats.title}}</p>
-            {{stats.value}}
-          </div>
-          <div class="stats" slot="footer">
-            <i :class="stats.footerIcon"></i> {{stats.footerText}}
-          </div>
-        </stats-card>
+      <div class="col-lg-3 col-sm-6">
+        <info-card type="success" icon="ti-signal" title="Temperatura" :value="ultimaTemperatura"
+                   :sufixo="ultimaTemperatura ? 'ºc' : 'N/D'" footerIcon="ti-reload" footerText="última amostra"/>
+      </div>
+      <div class="col-lg-3 col-sm-6">
+        <info-card type="info" icon="ti-cloud" title="Umidade" :value="ultimaUmidade"
+                   :sufixo="ultimaUmidade ? '%': 'N/D'" footerIcon="ti-reload" footerText="última amostra"/>
+      </div>
+      <div class="col-lg-3 col-sm-6">
+        <info-card type="warning" icon="ti-pulse" title="Atuador" :value="ultimaAtuador ? 'On' : 'Off'"
+                   sufixo="" footerIcon="ti-reload" footerText="estado atual"/>
+      </div>
+      <div class="col-lg-3 col-sm-6">
+        <info-card :type="statusServidor ? 'success':'danger'" icon="ti-server" title="Servidor" :value="statusServidor ? 'On':'Off'"
+                   sufixo="" footerIcon="ti-reload" footerText="última amostra"/>
       </div>
     </div>
 
@@ -24,96 +26,73 @@
 
       <div class="col-xs-12">
         <chart-card :chart-data="usersChart.data" :chart-options="usersChart.options">
-          <h4 class="title" slot="title">Users behavior</h4>
-          <span slot="subTitle"> 24 Hours performance</span>
+          <h4 class="title" slot="title">Ultimas medições</h4>
+          <span slot="subTitle"> </span>
           <span slot="footer">
-            <i class="ti-reload"></i> Updated 3 minutes ago</span>
+            <i class="ti-reload"></i> Atualizado a cada 30 segundos</span>
           <div slot="legend">
-            <i class="fa fa-circle text-info"></i> Open
-            <i class="fa fa-circle text-danger"></i> Click
-            <i class="fa fa-circle text-warning"></i> Click Second Time
+            <i class="fa fa-circle text-info"></i> Temperatura
+            <i class="fa fa-circle text-danger"></i> Umidade
+            <i class="fa fa-circle text-warning"></i> Estado do atuador
           </div>
         </chart-card>
       </div>
 
-      <div class="col-md-6 col-xs-12">
-        <chart-card :chart-data="preferencesChart.data"  chart-type="Pie">
-          <h4 class="title" slot="title">Email Statistics</h4>
-          <span slot="subTitle"> Last campaign performance</span>
-          <span slot="footer">
-            <i class="ti-timer"></i> Campaign set 2 days ago</span>
-          <div slot="legend">
-            <i class="fa fa-circle text-info"></i> Open
-            <i class="fa fa-circle text-danger"></i> Bounce
-            <i class="fa fa-circle text-warning"></i> Unsubscribe
-          </div>
-        </chart-card>
-      </div>
+      <!--<div class="col-md-6 col-xs-12">-->
+        <!--<chart-card :chart-data="preferencesChart.data"  chart-type="Pie">-->
+          <!--<h4 class="title" slot="title">Email Statistics</h4>-->
+          <!--<span slot="subTitle"> Last campaign performance</span>-->
+          <!--<span slot="footer">-->
+            <!--<i class="ti-timer"></i> Campaign set 2 days ago</span>-->
+          <!--<div slot="legend">-->
+            <!--<i class="fa fa-circle text-info"></i> Open-->
+            <!--<i class="fa fa-circle text-danger"></i> Bounce-->
+            <!--<i class="fa fa-circle text-warning"></i> Unsubscribe-->
+          <!--</div>-->
+        <!--</chart-card>-->
+      <!--</div>-->
 
-      <div class="col-md-6 col-xs-12">
-        <chart-card :chart-data="activityChart.data" :chart-options="activityChart.options">
-          <h4 class="title" slot="title">2015 Sales</h4>
-          <span slot="subTitle"> All products including Taxes</span>
-          <span slot="footer">
-            <i class="ti-check"></i> Data information certified</span>
-          <div slot="legend">
-            <i class="fa fa-circle text-info"></i> Tesla Model S
-            <i class="fa fa-circle text-warning"></i> BMW 5 Series
-          </div>
-        </chart-card>
-      </div>
+      <!--<div class="col-md-6 col-xs-12">-->
+        <!--<chart-card :chart-data="activityChart.data" :chart-options="activityChart.options">-->
+          <!--<h4 class="title" slot="title">2015 Sales</h4>-->
+          <!--<span slot="subTitle"> All products including Taxes</span>-->
+          <!--<span slot="footer">-->
+            <!--<i class="ti-check"></i> Data information certified</span>-->
+          <!--<div slot="legend">-->
+            <!--<i class="fa fa-circle text-info"></i> Tesla Model S-->
+            <!--<i class="fa fa-circle text-warning"></i> BMW 5 Series-->
+          <!--</div>-->
+        <!--</chart-card>-->
+      <!--</div>-->
 
     </div>
 
   </div>
 </template>
 <script>
-  import StatsCard from 'components/UIComponents/Cards/StatsCard.vue'
   import ChartCard from 'components/UIComponents/Cards/ChartCard.vue'
+  import InfoCard from 'components/UIComponents/Cards/InfoCard.vue'
   export default {
     components: {
-      StatsCard,
-      ChartCard
+      ChartCard,
+      InfoCard
     },
-    /**
-     * Chart data used to render stats, charts. Should be replaced with server data
-     */
+    mounted () {
+      clearInterval(this.intervaloConsulta)
+      this.intervaloConsulta = setInterval(function () { this.consultarServidor() }, 30000)
+    },
+    methods: {
+      consultarServidor () {
+        console.log()
+      }
+    },
     data () {
       return {
-        statsCards: [
-          {
-            type: 'warning',
-            icon: 'ti-server',
-            title: 'Capacity',
-            value: '105GB',
-            footerText: 'Updated now',
-            footerIcon: 'ti-reload'
-          },
-          {
-            type: 'success',
-            icon: 'ti-wallet',
-            title: 'Revenue',
-            value: '$1,345',
-            footerText: 'Last day',
-            footerIcon: 'ti-calendar'
-          },
-          {
-            type: 'danger',
-            icon: 'ti-pulse',
-            title: 'Errors',
-            value: '23',
-            footerText: 'In the last hour',
-            footerIcon: 'ti-timer'
-          },
-          {
-            type: 'info',
-            icon: 'ti-twitter-alt',
-            title: 'Followers',
-            value: '+45',
-            footerText: 'Updated now',
-            footerIcon: 'ti-reload'
-          }
-        ],
+        intervaloConsulta: null,
+        ultimaTemperatura: null,
+        ultimaUmidade: null,
+        ultimaAtuador: null,
+        statusServidor: null,
         usersChart: {
           data: {
             labels: ['9:00AM', '12:00AM', '3:00PM', '6:00PM', '9:00PM', '12:00PM', '3:00AM', '6:00AM'],
