@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import 'babel-polyfill'
 import VueRouter from 'vue-router'
 import vClickOutside from 'v-click-outside'
 
@@ -16,7 +17,11 @@ import Chartist from 'chartist'
 import 'bootstrap/dist/css/bootstrap.css'
 import './assets/sass/paper-dashboard.scss'
 import 'es6-promise/auto'
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default.css'
 
+Vue.use(VueMaterial)
 // plugin setup
 Vue.use(VueRouter)
 Vue.use(GlobalComponents)

@@ -25,7 +25,7 @@
     <div class="row">
 
       <div class="col-xs-12">
-        <chart-card :chart-data="temperaturas" :chart-options="options">
+        <chart-card :chart-data="temperaturas" :chart-options="options" v-if="temperaturas">
           <h4 class="title" slot="title">Ultimas medições de temperatura</h4>
           <span slot="subTitle"> </span>
           <span slot="footer">
@@ -37,7 +37,7 @@
       </div>
 
       <div class="col-xs-12">
-        <chart-card :chart-data="umidades" :chart-options="options">
+        <chart-card :chart-data="umidades" :chart-options="options"  v-if="umidades">
           <h4 class="title" slot="title">Ultimas medições de umidade</h4>
           <span slot="subTitle"> </span>
           <span slot="footer">
@@ -49,9 +49,13 @@
       </div>
 
       <div class="col-xs-12">
-        <chart-card :chart-data="atuadores" :chart-options="options">
+        <chart-card :chart-data="atuadores" :chart-options="options"  v-if="atuadores">
           <h4 class="title" slot="title">Histórico do Atuador</h4>
-          <span slot="subTitle"> </span>
+          <span slot="subTitle">
+            <md-radio v-model="ultimaAtuador" value="-1" @change="novo('atuador', -1)">Auto</md-radio>
+            <md-radio v-model="ultimaAtuador" value="0"  @change="novo('atuador', 0)">Off</md-radio>
+            <md-radio v-model="ultimaAtuador" value="1"  @change="novo('atuador', 1)">On</md-radio>
+          </span>
           <span slot="footer">
             <i class="ti-reload"></i> Atualizado a cada 30 segundos</span>
           <div slot="legend">
@@ -68,7 +72,9 @@
   import ChartCard from 'components/UIComponents/Cards/ChartCard.vue'
   import InfoCard from 'components/UIComponents/Cards/InfoCard.vue'
   import {HTTP} from '../../../http-custom'
+  import formMixin from '../../../mixins/form'
   export default {
+    mixins: [formMixin],
     components: {
       ChartCard,
       InfoCard
@@ -76,7 +82,7 @@
     created () {
       clearInterval(this.intervaloConsulta)
       this.consultarServidor()
-      this.intervaloConsulta = setInterval(this.consultarServidor(), 10000)
+      this.intervaloConsulta = setInterval(this.consultarServidor(), 30000)
     },
     methods: {
       consultarServidor () {

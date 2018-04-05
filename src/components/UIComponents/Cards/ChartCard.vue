@@ -82,7 +82,7 @@
     },
     mounted () {
       this.updateChartId()
-      this.$nextTick(this.initChart)
+      setTimeout(this.initChart, 500)
     }
   }
 
