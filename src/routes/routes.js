@@ -9,7 +9,9 @@ import Notifications from 'src/components/Dashboard/Views/Notifications.vue'
 import Icons from 'src/components/Dashboard/Views/Icons.vue'
 import Maps from 'src/components/Dashboard/Views/Maps.vue'
 import Typography from 'src/components/Dashboard/Views/Typography.vue'
-import TableList from 'src/components/Dashboard/Views/TableList.vue'
+import TempList from 'src/components/Dashboard/Views/TableTemperatura.vue'
+import UmidList from 'src/components/Dashboard/Views/TableUmidade.vue'
+import AtuadList from 'src/components/Dashboard/Views/TableAtuador.vue'
 
 const routes = [
   {
@@ -24,7 +26,7 @@ const routes = [
     children: [
       {
         path: 'overview',
-        name: 'overview',
+        name: 'Dashboard',
         component: Overview
       },
       {
@@ -53,9 +55,19 @@ const routes = [
         component: Typography
       },
       {
-        path: 'table-list',
-        name: 'table-list',
-        component: TableList
+        path: 'temp-list',
+        name: 'Histórico de Temperatura',
+        component: TempList
+      },
+      {
+        path: 'umid-list',
+        name: 'Histórico de Umidade',
+        component: UmidList
+      },
+      {
+        path: 'atuad-list',
+        name: 'Histórico do Atuador',
+        component: AtuadList
       }
     ]
   },
