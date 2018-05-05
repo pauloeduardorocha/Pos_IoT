@@ -9,7 +9,7 @@ module.exports = function(application){
 		switch (message_topic) {
 			case 'topic-iot-cefetmg/umidade':
 				var umidade = new Umidade();
-				umidade.time = new Date().getTime();
+				umidade.time = new Date();
 				umidade.valor = payload;
 				umidade.save(function(error) { // insere no db
 					if (error)
