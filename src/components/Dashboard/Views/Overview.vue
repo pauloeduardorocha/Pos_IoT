@@ -95,7 +95,7 @@
             })
             this.temperaturas.labels = res.data.map(function (elem) {
               if (elem.time) {
-                return new Date(elem.time)
+                return new Date(elem.time).getDate() + '/' + new Date(elem.time).getMonth() + '/' + new Date(elem.time).getFullYear() + '<br/>' + new Date(elem.time).getHours() + ':' + new Date(elem.time).getMinutes() + ':' + new Date(elem.time).getSeconds()
               } else {
                 return 'n/d'
               }
@@ -113,7 +113,7 @@
               })
               this.umidades.labels = res.data.map(function (elem) {
                 if (elem.time) {
-                  return new Date(elem.time)
+                  return new Date(elem.time).getDate() + '/' + new Date(elem.time).getMonth() + '/' + new Date(elem.time).getFullYear() + '<br/>' + new Date(elem.time).getHours() + ':' + new Date(elem.time).getMinutes() + ':' + new Date(elem.time).getSeconds()
                 } else {
                   return 'n/d'
                 }
@@ -131,7 +131,7 @@
             })
             this.atuadores.labels = res.data.map(function (elem) {
               if (elem.time) {
-                return new Date(elem.time)
+                return new Date(elem.time).getDate() + '/' + new Date(elem.time).getMonth() + '/' + new Date(elem.time).getFullYear() + '<br/>' + new Date(elem.time).getHours() + ':' + new Date(elem.time).getMinutes() + ':' + new Date(elem.time).getSeconds()
               } else {
                 return 'n/d'
               }
