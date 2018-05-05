@@ -88,6 +88,8 @@
       consultarServidor () {
         HTTP.get('temperatura?_limit=10').then(
           res => {
+            let aux = res.data.reverse()
+            res.data = aux
             this.temperaturas.series[0] = res.data.map(function (elem) {
               return elem.valor
             })
@@ -104,6 +106,8 @@
         })
         HTTP.get('umidade?_limit=10').then(
             res => {
+              let aux = res.data.reverse()
+              res.data = aux
               this.umidades.series[0] = res.data.map(function (elem) {
                 return elem.valor
               })
@@ -120,6 +124,8 @@
         })
         HTTP.get('atuador?_limit=10').then(
           res => {
+            let aux = res.data.reverse()
+            res.data = aux
             this.atuadores.series[0] = res.data.map(function (elem) {
               return elem.valor
             })
