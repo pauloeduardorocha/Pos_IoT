@@ -73,19 +73,19 @@ module.exports = function(application){
 	application.post('/atuador', function(req, res) {
 		var atuador = new Atuador();
 
-		atuador.time = req.body.time;
+		atuador.time = new Date();
 		atuador.valor = req.body.valor;
 
-		client.publish('topic-iot-cefetmg',  atuador.valor); //MQTT: publica o valor da temperatura no Tópico
+		client.publish('topic-iot-cefetmg/atuador',  atuador.valor);
 
-		atuador.save(function(error) {
-			if (error)
-				res.send(error);
-
-			res.json({
-				message : 'atuador inserida e publicada!'
-			});
-		});
+		// atuador.save(function(error) {
+		// 	if (error)
+		// 		res.send(error);
+        //
+		// 	res.json({
+		// 		message : 'atuador inserida e publicada!'
+		// 	});
+		// });
 
 		console.log('POST /atuador');
 	});

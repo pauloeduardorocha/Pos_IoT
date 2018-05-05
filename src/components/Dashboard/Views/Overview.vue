@@ -12,7 +12,7 @@
                    :sufixo="ultimaUmidade ? '%': 'N/D'" footerIcon="ti-reload" footerText="última amostra"/>
       </div>
       <div class="col-lg-3 col-sm-6">
-        <info-card type="warning" icon="ti-pulse" title="Atuador" :value="ultimaAtuador ? 'On' : 'Off'"
+        <info-card type="warning" icon="ti-pulse" title="Atuador" :value="ultimaAtuador === '1' ? 'On' : 'Off'"
                    sufixo="" footerIcon="ti-reload" footerText="estado atual"/>
       </div>
       <div class="col-lg-3 col-sm-6">
@@ -52,7 +52,7 @@
         <chart-card :chart-data="atuadores" :chart-options="options"  v-if="atuadores">
           <h4 class="title" slot="title">Histórico do Atuador</h4>
           <span slot="subTitle">
-            <md-radio v-model="ultimaAtuador" value="-1" @change="novo('atuador', -1)">Auto</md-radio>
+            <!--<md-radio v-model="ultimaAtuador" value="-1" @change="novo('atuador', -1)">Auto</md-radio>-->
             <md-radio v-model="ultimaAtuador" value="0"  @change="novo('atuador', 0)">Off</md-radio>
             <md-radio v-model="ultimaAtuador" value="1"  @change="novo('atuador', 1)">On</md-radio>
           </span>
