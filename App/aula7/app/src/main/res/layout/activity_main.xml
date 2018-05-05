@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.cefetmg.iot.aula7.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <Button
+            android:id="@+id/button_recente_atuad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:text="Atuador Recente" />
+
+        <Button
+            android:id="@+id/button_list_atuad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button_recente_atuad"
+            android:layout_weight="1"
+            android:text="Lista de Estados do Atuador" />
+
+        <Button
+            android:id="@+id/button_atualizar_atuad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button_list_atuad"
+            android:layout_weight="1"
+            android:text="Atualizar Atuador" />
+
+        <Button
+            android:id="@+id/button_recente_umid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:text="Umidade Recente" />
+
+
+        <Button
+            android:id="@+id/button_list_umid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button_recente_umid"
+            android:layout_weight="1"
+            android:text="Lista de Umidades" />
+
+        <Button
+            android:id="@+id/button_atualizar_umid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button_list_umid"
+            android:layout_weight="1"
+            android:text="Atualizar Umidade" />
+
+        <Button
+            android:id="@+id/button_recente_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:text="Temperatura Recente" />
+
+        <Button
+            android:id="@+id/button_list_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button_recente_temp"
+            android:layout_weight="1"
+            android:text="Lista de Temperaturas" />
+
+        <Button
+            android:id="@+id/button_atualizar_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button_list_temp"
+            android:layout_weight="1"
+            android:text="Atualizar Temperatura" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
