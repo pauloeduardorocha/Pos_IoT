@@ -8,7 +8,7 @@ module.exports = function(application){
 		switch (message_topic) {
 			case 'topic-iot-cefetmg/atuador':
 				var atuador = new Atuador();
-				atuador.time = new Date().getTime();
+				atuador.time = new Date();
 				atuador.valor = payload;
 				atuador.save(function(error) { // insere no db
 					if (error)
