@@ -9,7 +9,7 @@ module.exports = function(application){
 		switch (message_topic) {
 			case 'topic-iot-cefetmg/temperatura':
 				var temperatura = new Temperatura();
-				temperatura.time = new Date().getTime();
+				temperatura.time = new Date();
 				temperatura.valor = payload;
 				temperatura.save(function(error) { // insere no db
 					if (error)
