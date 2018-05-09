@@ -1,4 +1,3 @@
-# [IoT NODEJS SERVER + MQTT](https://cristijora.github.io/vue-paper-dashboard/) 
+# [IoT NODEJS SERVER + MQTT](http://35.199.85.54) 
 
-
-![](https://github.com/pauloeduardorocha/Pos_IoT/blob/iot/static/index.jpg)
+Arquivos para o servidor RESTFUL, escritos em NODEJS e editaveis na plataforma WebStorm da JetBrains.
