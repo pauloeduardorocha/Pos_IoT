@@ -1,4 +1,4 @@
-# [Vue IoT Dashboard](https://cristijora.github.io/vue-paper-dashboard/) 
+# [Vue IoT Dashboard](http://35.199.85.54) 
 
 
 ![](https://github.com/pauloeduardorocha/Pos_IoT/blob/iot/static/index.jpg)
