@@ -13,7 +13,7 @@
         tools:layout_editor_absoluteY="8dp">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView2_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -22,36 +22,36 @@
             android:text="Atualizar Temperatura" />
 
         <EditText
-            android:id="@+id/editText_valor"
+            android:id="@+id/editText_valor_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/textView2"
+            android:layout_below="@+id/textView2_temp"
             android:layout_marginEnd="158dp"
             android:layout_marginRight="158dp"
             android:ems="10"
             android:inputType="none" />
 
         <Button
-            android:id="@+id/button_enviar"
+            android:id="@+id/button_enviar_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/editText_valor"
+            android:layout_below="@+id/editText_valor_temp"
             android:text="Enviar" />
 
         <TextView
-            android:id="@+id/textView_response"
+            android:id="@+id/textView_response_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/button_enviar"
-            android:layout_alignBottom="@+id/button_enviar"
+            android:layout_alignBaseline="@+id/button_enviar_temp"
+            android:layout_alignBottom="@+id/button_enviar_temp"
             android:layout_marginLeft="26dp"
             android:layout_marginStart="26dp"
-            android:layout_toEndOf="@+id/button_enviar"
-            android:layout_toRightOf="@+id/button_enviar"
+            android:layout_toEndOf="@+id/button_enviar_temp"
+            android:layout_toRightOf="@+id/button_enviar_temp"
             android:text="Response" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

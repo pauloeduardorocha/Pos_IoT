@@ -111,15 +111,17 @@ module.exports = function(application){
 
 		client.publish('topic-iot-cefetmg', umidade.valor); //MQTT: publica o valor da umidade no Tópico
 
-		umidade.save(function(error) {
-			if (error)
-				res.send(error);
-
-			res.json({
-				message : 'umidade inserida e publicada!'
-			});
-		});
-
+		// umidade.save(function(error) {
+		// 	if (error)
+		// 		res.send(error);
+        //
+		// 	res.json({
+		// 		message : 'umidade inserida e publicada!'
+		// 	});
+		// });
+    res.json({
+      message : 'umidade inserida e publicada!'
+    });
 		console.log('POST /umidade');
 	});
 

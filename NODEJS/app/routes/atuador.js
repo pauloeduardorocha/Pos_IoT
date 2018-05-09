@@ -86,7 +86,9 @@ module.exports = function(application){
 		// 		message : 'atuador inserida e publicada!'
 		// 	});
 		// });
-
+    res.json({
+      message : 'Mudança no atuador inserida e publicada!'
+    });
 		console.log('POST /atuador');
 	});
 

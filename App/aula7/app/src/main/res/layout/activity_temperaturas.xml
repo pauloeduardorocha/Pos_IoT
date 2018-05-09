@@ -12,23 +12,35 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+      <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+
+          <TextView
+            android:id="@+id/textView_temp_list"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:text="Lista de Temperaturas" />
 
-        <TextView
-            android:id="@+id/text_result"
+          <TextView
+            android:id="@+id/text_result_temp_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView"
+            android:layout_below="@+id/textView_temp_list"
             android:layout_marginTop="10dp"
             android:text="leituras" />
+        </LinearLayout>
+      </ScrollView>
+
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

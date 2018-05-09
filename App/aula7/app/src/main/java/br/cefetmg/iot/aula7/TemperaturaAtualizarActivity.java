@@ -16,23 +16,23 @@ import java.util.Map;
 
 public class TemperaturaAtualizarActivity extends AppCompatActivity {
 
-    EditText editText_valor;
-    Button button_enviar;
-    TextView textView_response;
+    EditText editText_valor_temp;
+    Button button_enviar_temp;
+    TextView textView_response_temp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temperatura_atualizar);
 
-        editText_valor = (EditText) findViewById(R.id.editText_valor);
+        editText_valor_temp = (EditText) findViewById(R.id.editText_valor_temp);
 
-        button_enviar = (Button) findViewById(R.id.button_enviar);
+        button_enviar_temp = (Button) findViewById(R.id.button_enviar_temp);
 
-        textView_response = (TextView)findViewById(R.id.textView_response);
-        button_enviar.setOnClickListener(new View.OnClickListener() {
+        textView_response_temp = (TextView)findViewById(R.id.textView_response_temp);
+        button_enviar_temp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valor = String.valueOf(editText_valor.getText());
+                String valor = String.valueOf(editText_valor_temp.getText());
 
                 Map<String, String> postData = new HashMap<>();
                 postData.put("valor", valor);
@@ -42,7 +42,7 @@ public class TemperaturaAtualizarActivity extends AppCompatActivity {
                 String datetime = dateformat.format(c.getTime());
                 postData.put("time", datetime);
 
-                PostTemperatura post = new PostTemperatura(postData, textView_response);
+                PostTemperatura post = new PostTemperatura(postData, textView_response_temp);
                 post.execute();
 
             }

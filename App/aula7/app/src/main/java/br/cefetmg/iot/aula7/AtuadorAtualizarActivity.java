@@ -14,23 +14,23 @@ import java.util.Map;
 
 public class AtuadorAtualizarActivity extends AppCompatActivity {
 
-    EditText editText_valor;
-    Button button_enviar;
-    TextView textView_response;
+    EditText editText_valor_atuad;
+    Button button_enviar_atuad;
+    TextView textView_response_atuad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_atuador_atualizar);
 
-        editText_valor = (EditText) findViewById(R.id.editText_valor);
+        editText_valor_atuad = (EditText) findViewById(R.id.editText_valor_atuad);
 
-        button_enviar = (Button) findViewById(R.id.button_enviar);
+        button_enviar_atuad = (Button) findViewById(R.id.button_enviar_atuad);
 
-        textView_response = (TextView)findViewById(R.id.textView_response);
-        button_enviar.setOnClickListener(new View.OnClickListener() {
+        textView_response_atuad = (TextView)findViewById(R.id.textView_response_atuad);
+        button_enviar_atuad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valor = String.valueOf(editText_valor.getText());
+                String valor = String.valueOf(editText_valor_atuad.getText());
 
                 Map<String, String> postData = new HashMap<>();
                 postData.put("valor", valor);
@@ -40,7 +40,7 @@ public class AtuadorAtualizarActivity extends AppCompatActivity {
                 String datetime = dateformat.format(c.getTime());
                 postData.put("time", datetime);
 
-                PostAtuador post = new PostAtuador(postData, textView_response);
+                PostAtuador post = new PostAtuador(postData, textView_response_atuad);
                 post.execute();
 
             }

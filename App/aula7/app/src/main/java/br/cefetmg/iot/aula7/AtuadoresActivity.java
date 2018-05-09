@@ -6,14 +6,14 @@ import android.widget.TextView;
 
 public class AtuadoresActivity extends AppCompatActivity {
 
-    TextView text_result;
+    TextView text_result_atuad_list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_atuadores);
 
-        text_result = (TextView) findViewById(R.id.text_result);
-        GetAtuadores req = new GetAtuadores(text_result);
+        text_result_atuad_list = (TextView) findViewById(R.id.text_result_atuad_list);
+        GetAtuadores req = new GetAtuadores(text_result_atuad_list);
         req.execute();
     }
 }

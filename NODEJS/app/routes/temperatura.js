@@ -107,17 +107,19 @@ module.exports = function(application){
 		temperatura.time = new Date().getTime();
 		temperatura.valor = req.body.valor;
 
-		// client.publish('topic-iot-cefetmg',  temperatura.valor); //MQTT: publica o valor da temperatura no Tópico
+		client.publish('topic-iot-cefetmg',  temperatura.valor); //MQTT: publica o valor da temperatura no Tópico
 
-		temperatura.save(function(error) {
-			if (error)
-				res.send(error);
-
-			res.json({
-				message : 'temperatura inserida e publicada!'
-			});
-		});
-
+		// temperatura.save(function(error) {
+		// 	if (error)
+		// 		res.send(error);
+        //
+		// 	res.json({
+		// 		message : 'temperatura inserida e publicada!'
+		// 	});
+		// });
+    res.json({
+      message : 'temperatura inserida e publicada!'
+    });
 		console.log('POST /temperatura');
 	});
 
